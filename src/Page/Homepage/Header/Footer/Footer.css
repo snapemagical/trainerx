@@ -1,0 +1,110 @@
+/* .bottom_footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid;
+} */
+.location {
+  display: flex;
+}
+.bottom_footer p {
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 0px;
+}
+.footerr {
+  /* background-color: #05172d; */
+}
+/* .bottom_footer p a {
+  text-decoration: underline;
+} */
+.public_icon img {
+  background-color: rgba(14, 45, 88, 1);
+  padding: 7px 9px;
+  border-radius: 10px;
+  z-index: 19;
+  /* margin-right: 47px; */
+  margin-left: 10px !important;
+  width: 12px;
+}
+.footerLogoSide {
+  background: #edf5ff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footerContentSide {
+  background-color: #05172d;
+}
+.footer_logo img {
+  width: 400px;
+}
+.footerLogoSide,
+.footerContentSide {
+  padding: 60px 30px;
+}
+.footerContentSide .details {
+  color: #ffffff;
+}
+.footerContentSide .details svg {
+  color: #0d72fe;
+  margin-right: 12px;
+}
+.footerContentSide .details p {
+  display: flex;
+  font-size: 18px;
+}
+.social-icon-col {
+  text-align: center;
+  position: relative;
+  margin: 40px 0 60px;
+}
+.social-icon-col svg {
+  color: #fff;
+  background-color: #05172d;
+  border: 1px solid #154688;
+  margin: 0 6px;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 20px;
+}
+.social-icon-col:before,
+.social-icon-col:after {
+  content: '';
+  background: #949aa6;
+  height: 2px;
+  position: absolute;
+  top: 15px;
+  width: 35%;
+}
+.social-icon-col:before {
+  left: 0;
+}
+.social-icon-col:after {
+  right: 0;
+}
+@media only screen and (max-width: 959px) {
+  .footer_logo {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 599px) {
+  .footer_logo img {
+    width: 260px;
+  }
+  .footerContentSide .details p {
+    font-size: 15px;
+  }
+  .social-icon-col {
+    text-align: center;
+    position: relative;
+    margin: 30px 0 20px;
+  }
+  .MuiGrid-root.footerContentSide.MuiGrid-item {
+    padding: 15px 14px !important;
+  }
+  .bottom_footer p {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,138 @@
+.loginh1 {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  font-size: 24px;
+  font-weight: bold;
+}
+span.MuiTypography-root.MuiTypography-body1.MuiFormControlLabel-label.css-ahj2mt-MuiTypography-root {
+  font-size: 20px;
+}
+.form-control .MuiInputBase-formControl {
+  background-color: white;
+}
+.headlogo img {
+  width: 200px;
+  height: 160px;
+  margin-left: 10px;
+}
+input.MuiInputBase-input.MuiOutlinedInput-input {
+  height: 19px;
+  background-color: white;
+  /* border-radius: 0px; */
+  border: 1px #70707057;
+}
+.bgimg {
+  background-image: url('/public/img.jpeg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.papername {
+  border-radius: 10px;
+  background-color: rgb(37, 63, 93);
+  color: rgb(255, 255, 255);
+  max-width: 815px;
+  max-height: 949px;
+  margin: auto;
+}
+.formm {
+  padding-left: 35px;
+  padding-right: 35px;
+  /* margin-left: 20px; */
+}
+main.MuiGrid-root.makeStyles-root-1.MuiGrid-container {
+  justify-content: center !important;
+  display: flex;
+}
+
+main.MuiGrid-root.makeStyles-root-11.MuiGrid-container {
+  justify-content: center;
+}
+.logoo {
+  display: flex;
+  justify-content: center;
+}
+.makeStyles-paper-2 {
+  margin: -80px 32px 90px !important;
+}
+@media only screen and (max-width: 1279px) {
+  .headlogo {
+    display: flex;
+    justify-content: center;
+  }
+  .makeStyles-paper-2 {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+  }
+}
+@media only screen and (max-width: 959px) {
+  span.MuiTypography-root.MuiTypography-body1.MuiFormControlLabel-label.css-ahj2mt-MuiTypography-root {
+    font-size: 16px !important;
+  }
+  .formm form .MuiGrid-root.MuiGrid-item a {
+    font-size: 16px !important;
+  }
+  .makeStyles-paper-2 {
+    margin: 0px !important;
+  }
+  .bgimg {
+    min-height: 100vh;
+    height: 100%;
+    background-size: cover;
+  }
+  .checkkbox {
+    text-align: start !important;
+  }
+  .forgotp {
+    text-align: start !important;
+  }
+  .link {
+    margin-top: 60px !important;
+  }
+  .InputLabel {
+    margin-top: 15px !important;
+  }
+  .formm {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .logoo img {
+    width: 50%;
+  }
+  .acc-container {
+    margin-top: 50px !important;
+  }
+
+  .headlogo {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media only screen and (max-width: 768px) {
+  /* .bgimg {
+    min-height: 100vh;
+    height: 100%;
+  } */
+}
+@media only screen and (max-width: 500px) {
+  .no-account p {
+    font-size: 18px !important;
+  }
+
+  .logoo img {
+    width: 70%;
+  }
+}
+
+span.MuiCircularProgress-root.MuiCircularProgress-indeterminate.MuiCircularProgress-colorPrimary.css-18lrjg1-MuiCircularProgress-root {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  margin: 35% 22%;
+  z-index: 999;
+  color: #fff;
+}

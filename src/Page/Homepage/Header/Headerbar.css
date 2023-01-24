@@ -1,0 +1,6 @@
+.Hometext{
+    color: #fff;
+}
+.MuiButtonBase-root.MuiListItem-root.Buttons.MuiListItem-gutters.MuiListItem-button {
+  background: none;
+}

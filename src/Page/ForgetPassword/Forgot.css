@@ -1,0 +1,43 @@
+/* @media only screen and (max-width: 1279px) {
+.papername{
+    margin: 20px auto !important;
+}
+} */
+/* @media only screen and (max-width: 768px) {
+    .bgimg{
+      height: 100vh;
+  }
+    } */
+
+.makeStyles-paper-18,
+.makeStyles-paper-22 {
+  margin: -80px 32px 90px !important;
+}
+@media only screen and (max-width: 1279px) {
+  .makeStyles-paper-18,
+  .makeStyles-paper-22 {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+  }
+}
+
+svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-1hbvpl3-MuiSvgIcon-root {
+  color: #fff;
+}
+span.css-hyxlzm {
+  color: #fff;
+}
+button.swal-button.swal-button--confirm {
+  background-color: rgb(117, 100, 231);
+  border: none;
+}
+button.swal-button.swal-button--confirm:hover {
+  background-color: rgb(118, 99, 240);
+}
+button.swal-button.swal-button--confirm:focus {
+  box-shadow: none;
+}
+.checkkbox span.MuiCheckbox-root.MuiCheckbox-colorPrimary {
+  padding: 0;
+  margin-right: 10px;
+}

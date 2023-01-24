@@ -1,0 +1,81 @@
+.papernamee {
+  border-radius: 10px !important;
+  background-color: rgb(26 48 74) !important;
+  color: rgb(255, 255, 255) !important;
+  max-width: 815px;
+  /* max-height: 949px; */
+  margin: auto;
+  font-family: 'Poppins', sans-serif !important;
+}
+main.MuiGrid-root.makeStyles-root-1.MuiGrid-container {
+  justify-content: center !important;
+}
+main.MuiGrid-root.makeStyles-root-11.MuiGrid-container {
+  justify-content: center;
+}
+
+.makeStyles-paper-12 {
+  margin: -80px 32px 90px !important;
+}
+@media only screen and (max-width: 1279px) {
+  .makeStyles-paper-12 {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+  }
+}
+@media only screen and (max-width: 959px) {
+  .formm {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .logoo img {
+    width: 50%;
+  }
+  .acc-container {
+    margin-top: 50px !important;
+  }
+  .papername {
+    margin-top: 20px !important;
+  }
+  label.MuiFormLabel-root.MuiInputLabel-root.InputLabel.MuiInputLabel-animated {
+    font-size: 16px !important;
+  }
+  button.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary {
+    font-size: 16px !important;
+    margin-top: 20px !important;
+    height: 50px !important;
+  }
+  .MuiFormControl-marginNormal {
+    margin-top: 8px !important;
+  }
+  .loginh1 {
+    margin-bottom: 15px;
+  }
+  .makeStyles-paper-10 {
+    margin: 15px 0px !important;
+  }
+  button.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButtonBase-root.custom-btn.outline.Learnmore.css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
+    margin-top: 0 !important;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .no-account p {
+    font-size: 18px !important;
+  }
+  .loginh1 {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+
+  .logoo img {
+    width: 70%;
+  }
+  .loginh1 {
+    margin-bottom: 12px;
+  }
+}
+
+main.MuiGrid-root.makeStyles-root-1.MuiGrid-container {
+  justify-content: center !important;
+}

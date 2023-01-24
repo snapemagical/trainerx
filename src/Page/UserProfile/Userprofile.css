@@ -1,0 +1,46 @@
+p.Basic {
+  font-size: 16px;
+  color: #3d4a68;
+  font-weight: bold;
+  margin-top: 0;
+}
+.Basic1 {
+  margin-top: 30px;
+}
+.m-0{
+  font-size: 20px;
+}
+.selectField .MuiInputBase-root{
+  height: 55px;
+}
+main.MuiBox-root.css-zxdg2z {
+  /* padding: 0px; */
+  margin-top: 27px;
+  overflow: auto;
+}
+.mb-30 {
+  margin-bottom: 30px !important;
+}
+.user_profile p {
+  margin-bottom: 6px !important;
+}
+.MuiContainer-root.user_profile.MuiContainer-maxWidthXl {
+  padding: 0;
+}
+.user_profile p.Basic.profile-value {
+  margin-bottom: 12px !important;
+}
+@media (max-width: 767px) {
+  /* main.MuiBox-root.css-zxdg2z {
+    margin-top: 70px;
+  } */
+}
+@media (max-width: 959px) {
+  .MuiGrid-root.buttonColhalf.MuiGrid-item {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  .MuiGrid-root.customColP.MuiGrid-item h2 {
+    margin: 0 !important;
+  }
+}

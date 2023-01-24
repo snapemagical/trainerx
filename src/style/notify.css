@@ -1,0 +1,21 @@
+.notify li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #707070;
+    padding-bottom: 15px;
+}
+.notify-list p{
+        margin: 0;
+        font: normal normal normal 16px/26px Poppins;
+}
+.notify-list span {
+    font: normal normal normal 13px/22px Poppins;
+}
+.notify-action{
+    display: flex;
+}
+.notify {
+    padding: 0px;
+    margin: 0px;
+}

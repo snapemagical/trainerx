@@ -1,0 +1,389 @@
+.mav {
+  font-size: 33px;
+  color: white;
+  padding-top: 110px;
+}
+.mav h1 {
+  font-weight: 500;
+}
+.Industry {
+  font-size: 26px;
+  color: white;
+  margin-bottom: 40px;
+}
+.partners {
+  background-color: rgb(237 245 255);
+}
+
+.center_imgg img {
+  width: 60%;
+  margin: auto;
+}
+.navUi .Hometext span {
+  border-bottom: 2px solid transparent;
+  font-weight: 600;
+}
+.navUi .Hometext span:hover,
+.navUi .Hometext.active span,
+a.activem.active .Hometext span,
+.inner_page a.activem.home-active:hover .Hometext span {
+  color: #3f89ec;
+  border-bottom: 2px solid #3f89ec;
+}
+.inner_page a.activem.home-active .Hometext span {
+  border: 0;
+  color: #000;
+}
+.inner_page a.activem.home-active .Hometext span {
+  border-bottom: 2px solid transparent;
+  color: #000;
+}
+button.custom-btn {
+  border-radius: 20px;
+  background-color: #0c4898;
+  text-transform: capitalize;
+  padding: 5px 20px;
+  border: 2px solid #0c4898;
+}
+button.custom-btn.outline {
+  color: #fff;
+  background-color: transparent;
+  border: 2px solid #0c4898;
+}
+button.custom-btn.outline:hover {
+  background-color: #0c4898;
+  box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%),
+    0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+}
+.primary-heading {
+  font-size: 3rem;
+  color: #253f5d;
+  font-weight: 600;
+  margin: 0;
+}
+.custom-p {
+  font-size: 1.3rem;
+}
+.sectionPadding-t {
+  padding-top: 80px;
+}
+.sectionPadding-b {
+  padding-bottom: 80px;
+}
+.sectionMargin-t {
+  margin-top: 80px;
+}
+.bottomAfter {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto 60px;
+  padding-bottom: 8px;
+  color: #0c4898;
+}
+.partners h1.primary-heading {
+  color: #0c4898;
+}
+
+.bottomAfter:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #0c4898;
+  right: 0;
+  margin: 0 auto;
+}
+.bottomAfter:before {
+  content: '';
+  width: 0;
+  height: 0;
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 12px solid #0c4898;
+}
+.img-fluid {
+  max-width: 100%;
+}
+.productsCard {
+  max-width: 450px;
+  text-align: center;
+  border-radius: 25px !important;
+  box-shadow: 0px 1px 4px #20344b80 !important;
+  padding: 30px 15px;
+  margin: 0 auto;
+  background-color: #eff4f9 !important;
+}
+.productsCard img {
+  width: 230px;
+  margin: 20px 0 10px;
+  height: 110px;
+}
+.productsCard .contentSection p {
+  display: -webkit-box;
+  max-width: 100%;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 124px;
+}
+.mt-0 {
+  margin-top: 0 !important;
+}
+.partners .center_img img {
+  height: 190px;
+  object-fit: contain;
+  width: 100%;
+  background: #fff;
+  padding: 15px;
+  box-shadow: 0px 0px 4px #20344b80 !important;
+  border-radius: 20px;
+}
+.partners .center_img {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.p-200 {
+  padding-bottom: 200px;
+}
+.fixsocialIcon {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  width: 32px;
+  position: fixed;
+  left: 5px;
+  top: 280px;
+}
+.fixsocialIcon svg {
+  color: #fff;
+  background-color: #05172d;
+  border: 1px solid #154688;
+  margin: 3px 0px;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 15px;
+}
+.fixsocialIcon:before,
+.fixsocialIcon:after {
+  content: '';
+  background: #949aa6;
+  height: 120px;
+  position: absolute;
+  width: 2px;
+}
+.fixsocialIcon:before {
+  left: 15px;
+  top: -140px;
+}
+.fixsocialIcon:after {
+  right: 15px;
+  top: 132px;
+}
+.custom-spacing {
+  width: 100% !important;
+  margin: 0 !important;
+}
+.mx-4 {
+  margin: 0px 20px !important;
+}
+.fixsocialIcon a svg.facebook:hover,
+.social-icon-col a svg.facebook:hover {
+  background: #0c4898;
+}
+.fixsocialIcon a svg.twitter:hover,
+.social-icon-col a svg.twitter:hover {
+  background: #1da1f2;
+  border-color: #1da1f2;
+}
+.fixsocialIcon a svg.instagram:hover,
+.social-icon-col a svg.instagram:hover {
+  background: #eb4865;
+  border-color: #eb4865;
+}
+.helpFormcstm {
+  margin-top: -230px;
+}
+.helpFormcstm .howcan {
+  padding: 40px 52px 50px;
+}
+.helpFormcstm .howcan h1 {
+  color: #59636d;
+  margin-top: 0;
+  font-size: 1.6rem;
+  text-align: center;
+}
+.helpFormcstm .howcan button {
+  border-radius: 30px !important;
+  padding: 6px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.helpFormcstm .howcan button img {
+  margin-left: 6px;
+}
+.helpFormcstm .howcan .MuiOutlinedInput-root.MuiInputBase-root {
+  border-radius: 30px;
+}
+.helpFormcstm .howcan input {
+  height: 30px;
+  padding: 15px;
+  display: flex;
+  border: 1px #e7edf3;
+}
+.helpFormcstm .howcan label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #a9b3bb;
+  top: 3px;
+  left: 10px;
+}
+.helpFormcstm .howcan button.active img {
+  position: relative;
+  animation: mymove 2s;
+  animation-iteration-count: 1;
+}
+@keyframes mymove {
+  from {
+    right: 0px;
+  }
+  to {
+    right: -80%;
+  }
+}
+@media (max-width: 959px) {
+  .helpFormcstm {
+    margin-top: 0;
+  }
+  .sectionPadding-t {
+    padding-top: 50px;
+  }
+  .sectionMargin-t {
+    margin-top: 50px;
+  }
+  .sectionPadding-b {
+    padding-bottom: 50px;
+  }
+  .bottomAfter {
+    margin: 0 auto 40px !important;
+  }
+  p.mob-mb {
+    margin-bottom: 10px !important;
+  }
+  .about_us_section p.custom-p {
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .fixsocialIcon {
+    display: none;
+  }
+  .mx-4 {
+    margin: 0px 0px !important;
+  }
+  .mav {
+    font-size: 24px;
+    padding-top: 0px;
+    word-break: break-word;
+  }
+  .Industry {
+    font-size: 18px;
+  }
+  .p-200 {
+    padding-bottom: 100px;
+  }
+  .primary-heading {
+    font-size: 2.5rem;
+  }
+  .custom-p {
+    font-size: 1.2rem;
+    margin-top: 0 !important;
+  }
+  .sectionPadding-t {
+    padding-top: 40px;
+  }
+  .sectionPadding-b {
+    padding-bottom: 40px;
+  }
+  .sectionMargin-t {
+    margin-top: 40px;
+  }
+  .helpFormcstm .howcan {
+    padding: 30px 22px 30px;
+  }
+}
+@media only screen and (max-width: 599px) {
+  .productsCard {
+    max-width: 100%;
+  }
+  .primary-heading {
+    font-size: 1.6rem;
+  }
+  .our_product button.custom-btn {
+    margin-top: 20px;
+  }
+  .Book {
+    margin-bottom: 10px;
+  }
+  .helpFormcstm .howcan {
+    padding: 26px 12px 26px;
+  }
+  .custom-p {
+    font-size: 1rem;
+  }
+  .mav h1 {
+    font-size: 2.4rem;
+    line-height: 1.2;
+  }
+  .productsCard .contentSection p {
+    -webkit-line-clamp: unset;
+    display: flex;
+    height: auto;
+  }
+  .partners .MuiGrid-root.MuiGrid-item {
+    flex-grow: 0;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+  .bottomAfter {
+    margin-bottom: 30px;
+  }
+  .social-icon-col:before,
+  .social-icon-col:after {
+    width: 25% !important;
+  }
+  .footerLogoSide,
+  .footerContentSide {
+    padding: 50px 20px;
+  }
+  .MuiGrid-root.MuiGrid-item {
+    padding: 10px 5px !important;
+  }
+  .helpFormcstm .howcan button {
+    margin-top: 18px !important;
+  }
+}
+@media only screen and (max-width: 599px) {
+  @keyframes mymove {
+    from {
+      right: 0px;
+    }
+    to {
+      right: -70%;
+    }
+  }
+}
+@media (max-width: 399px) {
+  button.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary {
+    font-size: 14px !important;
+  }
+}
