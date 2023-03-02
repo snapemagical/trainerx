@@ -17,6 +17,7 @@ function Dashboard({ context }) {
           setData(d.data)
         }
     })
+    console.log(role);
 },[])
   return (
     <AppLayout>

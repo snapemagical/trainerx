@@ -1,55 +1,58 @@
 import "./App.css";
 import "./style/main.css";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Login from "./Page/Login/Login";
-import Signup from "./Page/Signup/Signup";
-import Forgetpassword from "./Page/ForgetPassword/Forgetpassword";
-import Dashboard from "./Page/Dashboard/Dashboard";
-import Userprofile from "./Page/UserProfile/Userprofile";
-import Changepassword from "./Page/ForgetPassword/Changepassword";
-import Homepage from "./Page/Homepage/Header/Homepage";
-import Signupstudent from "./Page/Signup/Signupstudent";
-import PageNotFound from "./Page/PageNotFound/PageNotFound";
-import Passwordchange from "./Page/ForgetPassword/Passwordchange";
-import Personal from "./Page/UserProfile/page/Personal/Personal";
-import Emergency from "./Page/UserProfile/page/Emergency/Emergency";
-import Qualification from "./Page/UserProfile/page/Qualification/Qualification";
-import Other from "./Page/UserProfile/page/Other";
-import Experience from "./Page/UserProfile/page/Experience/Experience";
-import Addprevious from "./Page/UserProfile/page/Experience/Addprevious";
-import Licenses from "./Page/UserProfile/page/Licenses/Licenses";
-import AddLicense from "./Page/UserProfile/page/Licenses/AddLicense";
-import AddELPDetails from "./Page/UserProfile/page/Licenses/AddELPDetails";
-import AddDetails from "./Page/UserProfile/page/Licenses/AddDetails";
-import InstrumentRating from "./Page/UserProfile/page/Licenses/InstrumentRating";
-import AddMedical from "./Page/UserProfile/page/Licenses/AddMedical";
-import AddRatings from "./Page/UserProfile/page/Licenses/AddRatings";
-import AuthRoute from "./common/authRoute";
-import Roster from "./Page/Roaster";
-import AllNotifications from "./Page/Notifications";
-import AddRoster from "./Page/Roaster/add";
-import HoursRoster from "./component/hour";
-import Students from "./Page/Students";
-import AddStudents from "./Page/Students/add";
-import Instructors from "./Page/Instructors";
-import AddInstructors from "./Page/Instructors/add";
-import Aircraft from "./Page/AirCrafts";
-import About from "./Page/Homepage/Header/Homepageall/About";
-import Contact from "./Page/Homepage/Header/Homepageall/Contact";
-import Products from "./Page/Homepage/Header/Homepageall/Products";
-import Careers from "./Page/Homepage/Header/Homepageall/Careers";
-import Services from "./Page/Homepage/Header/Homepageall/Services";
-import LoadSheet from "./Page/Roaster/loadSheet";
-import Addaircraft from "./Page/AirCrafts/add";
-import ResetPassword from "./Page/reset-password";
-import TicketRaising from "./Page/ticket-raising";
-import Maintenece from "./Page/Maintenece/index";
-import InstructorAnal from "./Page/Dashboard/instructorAnalysis";
-import StudentAnal from "./Page/Dashboard/studentAnalysis";
-import AircraftAnal from "./Page/Dashboard/aircraftAnalysis";
-import { useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
 
-function App() {
+// import Homepage from "./Page/Homepage/Header/Homepage";
+import PageNotFound from "./Page/PageNotFound/PageNotFound";
+// import About from "./Page/Homepage/Header/Homepageall/About";
+// import Contact from "./Page/Homepage/Header/Homepageall/Contact";
+// import Products from "./Page/Homepage/Header/Homepageall/Products";
+// import Careers from "./Page/Homepage/Header/Homepageall/Careers";
+// import Services from "./Page/Homepage/Header/Homepageall/Services";
+
+import Login from "./Page/Login/Login";
+// import Signup from "./Page/Signup/Signup";
+// import Forgetpassword from "./Page/ForgetPassword/Forgetpassword";
+// import Dashboard from "./Page/Dashboard/Dashboard";
+// import Userprofile from "./Page/UserProfile/Userprofile";
+// import Changepassword from "./Page/ForgetPassword/Changepassword";
+// import Signupstudent from "./Page/Signup/Signupstudent";
+// import Passwordchange from "./Page/ForgetPassword/Passwordchange";
+// import Personal from "./Page/UserProfile/page/Personal/Personal";
+// import Emergency from "./Page/UserProfile/page/Emergency/Emergency";
+// import Qualification from "./Page/UserProfile/page/Qualification/Qualification";
+// import Other from "./Page/UserProfile/page/Other";
+// import Experience from "./Page/UserProfile/page/Experience/Experience";
+// import Addprevious from "./Page/UserProfile/page/Experience/Addprevious";
+// import Licenses from "./Page/UserProfile/page/Licenses/Licenses";
+// import AddLicense from "./Page/UserProfile/page/Licenses/AddLicense";
+// import AddELPDetails from "./Page/UserProfile/page/Licenses/AddELPDetails";
+// import AddDetails from "./Page/UserProfile/page/Licenses/AddDetails";
+// import InstrumentRating from "./Page/UserProfile/page/Licenses/InstrumentRating";
+// import AddMedical from "./Page/UserProfile/page/Licenses/AddMedical";
+// import AddRatings from "./Page/UserProfile/page/Licenses/AddRatings";
+import AuthRoute from "./common/authRoute";
+import Dashboard from "./Page/Dashboard/Dashboard";
+// import Roster from "./Page/Roaster";
+// import AllNotifications from "./Page/Notifications";
+// import AddRoster from "./Page/Roaster/add";
+// import HoursRoster from "./component/hour";
+// import Students from "./Page/Students";
+// import AddStudents from "./Page/Students/add";
+// import Instructors from "./Page/Instructors";
+// import AddInstructors from "./Page/Instructors/add";
+// import Aircraft from "./Page/AirCrafts";
+// import LoadSheet from "./Page/Roaster/loadSheet";
+// import Addaircraft from "./Page/AirCrafts/add";
+// import ResetPassword from "./Page/reset-password";
+// import TicketRaising from "./Page/ticket-raising";
+// import Maintenece from "./Page/Maintenece/index";
+// import InstructorAnal from "./Page/Dashboard/instructorAnalysis";
+// import StudentAnal from "./Page/Dashboard/studentAnalysis";
+// import AircraftAnal from "./Page/Dashboard/aircraftAnalysis";
+// import { useEffect } from "react";
+
+const App = () => {
   const isBackgroundRed = true;
   useEffect(()=>{
     const script = document.createElement('script');
@@ -58,15 +61,18 @@ function App() {
         document.body.appendChild(script);
   },[])
   return (
-    <div
-      className="App"
-      style={{
-        backgroundColor: isBackgroundRed ? "#F9F9FF" : "blue",
-      }}
-    >
-      <Switch>
-        <AuthRoute exact path="/" component={Login} authRequired={false} />
-        <AuthRoute exact path="/login" component={Login} authRequired={false} />
+    <Routes>
+      <Route exact path="/login" element={<AuthRoute component={Login} authRequired={false}><Dashboard /></AuthRoute>} />
+      <Route exact path="/login-admin" element={<AuthRoute component={Login} authRequired={false}><Dashboard /></AuthRoute>} />
+      <Route path="/dashboard" element={<AuthRoute component={Dashboard} authRequired={true} />} />
+      
+      
+      {/* <AuthRoute exact path="/login" component={Login} authRequired={false} /> */}
+      
+      {/* <Route exact path="/login" element={<Login />} />
+      <Route excat path="/login-admin" element={<Login />} /> */}
+      
+      {/*   <AuthRoute exact path="/" component={Login} authRequired={false} />
         <AuthRoute
           exact
           path="/login-admin"
@@ -91,7 +97,7 @@ function App() {
           authRequired={false}
           component={Signupstudent}
         /> */}
-        <AuthRoute
+        {/* <AuthRoute
           exact
           path="/signup/:id"
           authRequired={false}
@@ -313,11 +319,10 @@ function App() {
         <Route exact path="/products" component={Products} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/careers" component={Careers} />
-        <Route exact path="/services" component={Services} />
+        <Route exact path="/services" component={Services} /> */}
 
         <Route path="*" component={PageNotFound} />
-      </Switch>
-    </div>
+      </Routes>
   );
 }
 
