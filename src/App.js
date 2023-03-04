@@ -4,11 +4,11 @@ import { Route, Routes } from "react-router-dom";
 
 // import Homepage from "./Page/Homepage/Header/Homepage";
 import PageNotFound from "./Page/PageNotFound/PageNotFound";
-// import About from "./Page/Homepage/Header/Homepageall/About";
+import About from "./Page/Homepage/Header/Homepageall/About";
+import Services from "./Page/Homepage/Header/Homepageall/Services";
 // import Contact from "./Page/Homepage/Header/Homepageall/Contact";
 // import Products from "./Page/Homepage/Header/Homepageall/Products";
 // import Careers from "./Page/Homepage/Header/Homepageall/Careers";
-// import Services from "./Page/Homepage/Header/Homepageall/Services";
 
 // import Login from "./Page/Login/Login";
 // import Signup from "./Page/Signup/Signup";
@@ -293,12 +293,12 @@ const App = () => {
           component={Maintenece}
         /> */}
 
-      {/* <Route exact path="/home" component={Homepage} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/products" component={Products} />
-        <Route exact path="/contact" component={Contact} />
-        <Route exact path="/careers" component={Careers} />
-        <Route exact path="/services" component={Services} /> */}
+      {/* <Route exact path="/home" element={Homepage} />
+        <Route exact path="/products" element={Products} />
+        <Route exact path="/contact" element={Contact} />
+        <Route exact path="/careers" element={Careers} />*/}
+      <Route path="/services" element={<Services />} exact />
+      <Route path="/about" element={<About />} exact />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
