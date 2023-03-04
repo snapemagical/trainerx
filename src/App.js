@@ -6,9 +6,9 @@ import { Route, Routes } from "react-router-dom";
 import PageNotFound from "./Page/PageNotFound/PageNotFound";
 import About from "./Page/Homepage/Header/Homepageall/About";
 import Services from "./Page/Homepage/Header/Homepageall/Services";
-// import Contact from "./Page/Homepage/Header/Homepageall/Contact";
-// import Products from "./Page/Homepage/Header/Homepageall/Products";
-// import Careers from "./Page/Homepage/Header/Homepageall/Careers";
+import Careers from "./Page/Homepage/Header/Homepageall/Careers";
+import Contact from "./Page/Homepage/Header/Homepageall/Contact";
+import Products from "./Page/Homepage/Header/Homepageall/Products";
 
 // import Login from "./Page/Login/Login";
 // import Signup from "./Page/Signup/Signup";
@@ -293,10 +293,10 @@ const App = () => {
           component={Maintenece}
         /> */}
 
-      {/* <Route exact path="/home" element={Homepage} />
-        <Route exact path="/products" element={Products} />
-        <Route exact path="/contact" element={Contact} />
-        <Route exact path="/careers" element={Careers} />*/}
+      {/* <Route path="/home" element={<Homepage/>} exact /> */}
+      <Route path="/products" element={<Products />} exact />
+      <Route path="/contact" element={<Contact />} exact />
+      <Route path="/careers" element={<Careers />} exact />
       <Route path="/services" element={<Services />} exact />
       <Route path="/about" element={<About />} exact />
       <Route path="*" element={<PageNotFound />} />

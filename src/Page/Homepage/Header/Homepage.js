@@ -1,28 +1,27 @@
 import { React, useState } from "react";
-import Header from "../Header/Header";
-import Headerbar from "../Header/Headerbar";
-import Grid from "@material-ui/core/Grid";
-import Container from "@mui/material/Container";
-import background from "../../images/background.svg";
-import trainerlogo from "../../images/trainerlogo.svg";
-import nauticsogo from "../../images/nauticsogo.svg";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import "./Homepage.css";
+import { useHistory } from "react-router";
+import { Grid, Container, Stack, Button, Card, TextField } from "@mui/material";
 import * as yup from "yup";
-import Card from "@mui/material/Card";
-import Footer from "./Footer/Footer";
-import AboutImg from "../../images/img_about-us.png";
-import SubmitFly from "../../images/ic_submit_flight.png";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import TextField from "@mui/material/TextField";
-import Slider from "../Header/Slider";
 import { useFormik } from "formik";
 import axios from "axios";
 import swal from "sweetalert";
-import { useHistory } from "react-router";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import TwitterIcon from "@mui/icons-material/Twitter";
+
+import Header from "../Header/Header";
+import Headerbar from "../Header/Headerbar";
+import Slider from "../Header/Slider";
+import Footer from "./Footer/Footer";
+import withStaticLayout from "../../../hoc/StaticLayout";
+
+import background from "../../images/background.svg";
+import trainerlogo from "../../images/trainerlogo.svg";
+import nauticsogo from "../../images/nauticsogo.svg";
+import AboutImg from "../../images/img_about-us.png";
+import SubmitFly from "../../images/ic_submit_flight.png";
+
+import "./Homepage.css";
 
 const validationSchema = yup.object({
   name: yup
@@ -37,7 +36,7 @@ const validationSchema = yup.object({
     .required("Email is required."),
 });
 
-export default function Home(props) {
+const Home = (props) => {
   let history = useHistory();
 
   const [name, setname] = useState();
@@ -49,27 +48,30 @@ export default function Home(props) {
     setEmail(e.target.value);
   };
 
-  const [message, Setmessage] =useState();
+  const [message, Setmessage] = useState();
   const handleMessageChange = (e) => {
     Setmessage(e.target.value);
-  }
+  };
   const baseURL = process.env.REACT_APP_API_ENDPOINT;
 
   const onSubmit = async (e) => {
     // e.preventDefault();
     const res = await axios
-      .post(baseURL + "accounts/contact-us/",
-        {
-          name: name,
-          email: email,
-          message:message,
-        }
-      )
+      .post(baseURL + "accounts/contact-us/", {
+        name: name,
+        email: email,
+        message: message,
+      })
       .then((res) => {
         // setMessage(res.data.message);
-        swal("Thanks for contacting us! We will be in touch with you shortly.", "", "success", {
-          button: "OK",
-        });
+        swal(
+          "Thanks for contacting us! We will be in touch with you shortly.",
+          "",
+          "success",
+          {
+            button: "OK",
+          }
+        );
       })
       // .catch((err) => { });
       .catch((error) => {
@@ -108,8 +110,7 @@ export default function Home(props) {
   });
 
   return (
-    <div className="position-relative">
-      <Header />
+    <>
       <div
         style={{
           backgroundImage: `url(${background})`,
@@ -117,41 +118,35 @@ export default function Home(props) {
           backgroundSize: "cover",
         }}
       >
-        <Headerbar />
-        <Container>
-          <Grid className="custom-spacing mx-4" spacing={2}>
-            <div className="mav">
-              <h1>
-                MAV AEROSAFETY
-                <br />
-                CONSULTANCY
-              </h1>
-            </div>
-            <div className="Industry">
-              <p>
-                Industry leaders in providing customer
-                <br />
-                focused Solutions.
-              </p>
-            </div>
-            <Stack className="p-200" spacing={2} direction="row">
+        <Grid className="custom-spacing mx-4" spacing={2}>
+          <div className="mav">
+            <h1>
+              MAV AEROSAFETY
+              <br />
+              CONSULTANCY
+            </h1>
+          </div>
+          <div className="Industry">
+            <p>
+              Industry leaders in providing customer
+              <br />
+              focused Solutions.
+            </p>
+          </div>
+          <Stack className="p-200" spacing={2} direction="row">
+            <Button className="custom-btn outline Learnmore" variant="outlined">
+              Learn more
+            </Button>
+            <div>
               <Button
                 className="custom-btn outline Learnmore"
                 variant="outlined"
               >
-                Learn more
+                Contact Us
               </Button>
-              <div>
-                <Button
-                  className="custom-btn outline Learnmore"
-                  variant="outlined"
-                >
-                  Contact Us
-                </Button>
-              </div>
-            </Stack>
-          </Grid>
-        </Container>
+            </div>
+          </Stack>
+        </Grid>
       </div>
 
       <div className="bookConsult sectionPadding-t">
@@ -338,7 +333,8 @@ export default function Home(props) {
                 flexFlow: "column",
               }}
               item
-              xs={12} sm={12}
+              xs={12}
+              sm={12}
               md={6}
             >
               <h1
@@ -388,9 +384,7 @@ export default function Home(props) {
             WHAT OUR CLIENTS SAY ?
           </h1>
           <Grid className="custom-spacing" container spacing={4}>
-            <Grid
-            style={{width:'100%'}}
-            item xs={12} sm={12} md={12}>
+            <Grid style={{ width: "100%" }} item xs={12} sm={12} md={12}>
               <Slider />
             </Grid>
           </Grid>
@@ -408,6 +402,8 @@ export default function Home(props) {
           <InstagramIcon className="instagram" />
         </a>
       </div>
-    </div>
+    </>
   );
-}
+};
+
+export default withStaticLayout(Home);
