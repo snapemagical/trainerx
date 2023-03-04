@@ -7,7 +7,7 @@ import Aboutslider from "./Aboutslider";
 const About = () => {
   return (
     <>
-      <Grid container spacing={2} style={{ alignItems: "center" }}>
+      <Grid container spacing={2}>
         <Grid item sm={12} md={6}>
           <div className="center_img">
             <img
@@ -40,8 +40,8 @@ const About = () => {
         </Grid>
       </Grid>
       <div className="the_team_section">
-        <h1 style={{ textAlign: "center" }}>THE TEAM</h1>
-        <p className="f-15" style={{ textAlign: "center" }}>
+        <h1>THE TEAM</h1>
+        <p className="f-15">
           Co-Founded by a Pilot and an Aviation Enthusiast, MAV AeroSafety have
           an exceptional team with expertise in different areas. We’re committed
           to solving complex business challenges using the latest technology and
