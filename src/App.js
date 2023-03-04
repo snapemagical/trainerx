@@ -54,14 +54,9 @@ import Dashboard from "./Page/Dashboard/Dashboard";
 
 const App = () => {
   const isBackgroundRed = true;
-  useEffect(()=>{
-    const script = document.createElement('script');
-    script.id = 'hs-script-loader'
-        script.src = '//js-na1.hs-scripts.com/19488787.js';
-        document.body.appendChild(script);
-  },[])
   return (
     <Routes>
+      <Route exact path="/" element={<AuthRoute component={Login} authRequired={false}><Dashboard /></AuthRoute>} />
       <Route exact path="/login" element={<AuthRoute component={Login} authRequired={false}><Dashboard /></AuthRoute>} />
       <Route exact path="/login-admin" element={<AuthRoute component={Login} authRequired={false}><Dashboard /></AuthRoute>} />
       <Route path="/dashboard" element={<AuthRoute component={Dashboard} authRequired={true} />} />
@@ -91,13 +86,7 @@ const App = () => {
           component={Forgetpassword}
           authRequired={false}
         />
-        {/* <AuthRoute
-          exact
-          path="/signup/MV9zdHVkZW50XzJhYzVlZjg1LTRhZjItNDRkOC05MmRlLWQ1M2ZhOWQ2NjcyNg"
-          authRequired={false}
-          component={Signupstudent}
-        /> */}
-        {/* <AuthRoute
+        <AuthRoute
           exact
           path="/signup/:id"
           authRequired={false}
@@ -313,17 +302,17 @@ const App = () => {
           authRequired={true}
           path={`/maintenece`}
           component={Maintenece}
-        />
-        <Route exact path="/home" component={Homepage} />
+        /> */}
+
+      {/* <Route exact path="/home" component={Homepage} />
         <Route exact path="/about" component={About} />
         <Route exact path="/products" component={Products} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/careers" component={Careers} />
         <Route exact path="/services" component={Services} /> */}
-
-        <Route path="*" component={PageNotFound} />
-      </Routes>
+      <Route path="*" element={<PageNotFound />} />
+    </Routes>
   );
-}
+};
 
 export default App;

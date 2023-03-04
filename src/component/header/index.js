@@ -2,7 +2,7 @@ import { Toolbar, IconButton, Menu, MenuItem, Typography } from '@mui/material'
 import { Settings, AccountCircle, NotificationsNone, Help } from '@mui/icons-material'
 import MenuIcon from '@mui/icons-material/Menu'
 import { withContext } from '../../context/appContext';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import logo from '../../Page/images/trainerX_logo_Blue.png'
 import setting from "../../Page/images/settings.png";
 import helpDesk from "../../Page/images/help-desk.png";
@@ -16,7 +16,7 @@ function Header({
   AppBar,
   context,
 }) {
-  const history = useHistory()
+  const history = useNavigate()
   const { role, notificationsCount, userProfile } = context
   const disabled = role > 2
   return (

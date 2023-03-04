@@ -5,7 +5,7 @@ import MuiAppBar from '@mui/material/AppBar'
 import BottomNavigation from '@mui/material/BottomNavigation';
 import { React, useEffect, useState } from 'react'
 import { styled, useTheme } from '@mui/material/styles'
-import { makeStyles } from '@material-ui/core/styles'
+// import { makeStyles } from '@material-ui/core/styles'
 import MuiDrawer from '@mui/material/Drawer'
 import { withContext } from '../context/appContext'
 import Footer from '../component/footer'
@@ -54,51 +54,51 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
 }))
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     flexGrow: 1,
+//   },
 
-  grow: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-    },
-  },
+//   grow: {
+//     flexGrow: 1,
+//   },
+//   menuButton: {
+//     marginRight: theme.spacing(2),
+//   },
+//   title: {
+//     flexGrow: 1,
+//     display: 'none',
+//     [theme.breakpoints.up('sm')]: {
+//       display: 'block',
+//     },
+//   },
 
-  inputRoot: {
-    color: 'inherit',
-  },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
-  },
-  sectionDesktop: {
-    display: 'none',
-    [theme.breakpoints.up('md')]: {
-      display: 'flex',
-    },
-  },
-  sectionMobile: {
-    display: 'flex',
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
-    },
-  },
-}))
+//   inputRoot: {
+//     color: 'inherit',
+//   },
+//   inputInput: {
+//     padding: theme.spacing(1, 1, 1, 0),
+//     // vertical padding + font size from searchIcon
+//     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+//     transition: theme.transitions.create('width'),
+//     width: '100%',
+//     [theme.breakpoints.up('md')]: {
+//       width: '20ch',
+//     },
+//   },
+//   sectionDesktop: {
+//     display: 'none',
+//     [theme.breakpoints.up('md')]: {
+//       display: 'flex',
+//     },
+//   },
+//   sectionMobile: {
+//     display: 'flex',
+//     [theme.breakpoints.up('md')]: {
+//       display: 'none',
+//     },
+//   },
+// }))
 const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== 'open',
 })(({ theme, open }) => ({
@@ -135,7 +135,7 @@ const openedMixin = (theme) => ({
   overflowX: 'hidden',
 })
 function AppLayout({ children, context }) {
-  const classes = useStyles()
+  // const classes = useStyles()
   const theme = useTheme()
 
   const [open, setOpen] = useState(false)
