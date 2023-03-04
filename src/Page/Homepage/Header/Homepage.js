@@ -1,5 +1,4 @@
 import { React, useState } from "react";
-import { useHistory } from "react-router";
 import { Grid, Container, Stack, Button, Card, TextField } from "@mui/material";
 import * as yup from "yup";
 import { useFormik } from "formik";
@@ -9,10 +8,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 
-import Header from "../Header/Header";
-import Headerbar from "../Header/Headerbar";
 import Slider from "../Header/Slider";
-import Footer from "./Footer/Footer";
 import withStaticLayout from "../../../hoc/StaticLayout";
 
 import background from "../../images/background.svg";
@@ -37,8 +33,6 @@ const validationSchema = yup.object({
 });
 
 const Home = (props) => {
-  let history = useHistory();
-
   const [name, setname] = useState();
   const handlenameChange = (e) => {
     setname(e.target.value);
@@ -55,7 +49,6 @@ const Home = (props) => {
   const baseURL = process.env.REACT_APP_API_ENDPOINT;
 
   const onSubmit = async (e) => {
-    // e.preventDefault();
     const res = await axios
       .post(baseURL + "accounts/contact-us/", {
         name: name,
@@ -63,7 +56,6 @@ const Home = (props) => {
         message: message,
       })
       .then((res) => {
-        // setMessage(res.data.message);
         swal(
           "Thanks for contacting us! We will be in touch with you shortly.",
           "",
@@ -73,30 +65,16 @@ const Home = (props) => {
           }
         );
       })
-      // .catch((err) => { });
       .catch((error) => {
         if (error.response) {
-          // Request made and server responded
         } else if (error.request) {
-          // The request was made but no response was received
         } else {
         }
-        //{message && <div>{message}</div>}
 
         swal("Something went wrong!", "Oops...", "error", {
           button: "OK",
         });
       });
-    history
-      // .push("/superadmin/usermanagement")
-      .then((res) => {})
-      .catch(function (error) {
-        if (error.response) {
-        } else if (error.request) {
-        } else {
-        }
-      });
-    // history.push("/category-management");
   };
 
   const formik = useFormik({
@@ -118,7 +96,7 @@ const Home = (props) => {
           backgroundSize: "cover",
         }}
       >
-        <Grid className="custom-spacing mx-4" spacing={2}>
+        <Grid className="custom-spacing mx-4" spacing={2} container>
           <div className="mav">
             <h1>
               MAV AEROSAFETY
@@ -390,7 +368,6 @@ const Home = (props) => {
           </Grid>
         </Container>
       </div>
-      <Footer />
       <div className="fixsocialIcon">
         <a href="#">
           <FacebookIcon className="facebook" />
