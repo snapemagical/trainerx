@@ -7,7 +7,7 @@ import Grid from "@mui/material/Grid";
 import * as yup from "yup";
 // import { makeStyles } from "@emotion/styled";
 import Paper from "@mui/material/Paper";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import InputLabel from "@mui/material/InputLabel";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -22,7 +22,7 @@ import Stack from "@mui/material/Stack";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControl from "@mui/material/FormControl";
-// import { withContext } from "../../context/appContext";
+import { AppContext } from "../../context/App";
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 // const useStyles = makeStyles((theme) => ({
 //   root: {
@@ -81,6 +81,7 @@ const validationSchema = yup.object({
 });
 
 function SignInSide(props) {
+  const context = useContext(AppContext);
   const [data, setData] = useState();
   const [success, setSuccess] = useState(null);
   const [message, setMessage] = useState(null);
@@ -145,14 +146,14 @@ function SignInSide(props) {
           } else if (response.data.role === 'instructor') {
             setSuccess(response.data.message)
           }
-          props?.context.authLogin(response?.data?.user?.role)
+          context.role(response?.data?.user?.role)
           const token = response.data.token.access;
           localStorage.refresh_token = response.data.token.refresh
           localStorage.setItem('token', token);
           const user = JSON.stringify(response?.data?.user)
           localStorage.user = user
           console.log('test', localStorage)
-          props?.context.getProfile()
+          context.getProfile()
           history.push("/dashboard");
         }
       })

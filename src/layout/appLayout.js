@@ -3,11 +3,11 @@ import Header from '../component/header'
 import Sidebar from '../component/sidebar'
 import MuiAppBar from '@mui/material/AppBar'
 import BottomNavigation from '@mui/material/BottomNavigation';
-import { React, useEffect, useState } from 'react'
+import { React, useContext, useEffect, useState } from 'react'
 import { styled, useTheme } from '@mui/material/styles'
 // import { makeStyles } from '@material-ui/core/styles'
 import MuiDrawer from '@mui/material/Drawer'
-// import { withContext } from '../context/App'
+import { AppContext } from '../context/App'
 import Footer from '../component/footer'
 
 const drawerWidth = 250
@@ -134,7 +134,8 @@ const openedMixin = (theme) => ({
   }),
   overflowX: 'hidden',
 })
-const AppLayout = ({ children, context }) => {
+const AppLayout = ({ children }) => {
+  const context = useContext(AppContext);
   // const classes = useStyles()
   const theme = useTheme()
 
@@ -185,6 +186,7 @@ const AppLayout = ({ children, context }) => {
       <Footer
         open={open}
         AppBar={AppBarFooter}
+        context={context}
       />
     </Box>
   )

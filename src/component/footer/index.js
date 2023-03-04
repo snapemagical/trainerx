@@ -1,7 +1,7 @@
 import { Toolbar, IconButton, Menu, MenuItem, Typography } from '@mui/material'
 import { Settings, AccountCircle, NotificationsActive, Help } from '@mui/icons-material'
 import MenuIcon from '@mui/icons-material/Menu'
-// import { withContext } from '../../context/appContext';
+import { AppContext } from '../../context/App';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../Page/images/trainerX_logo_Blue.png'
 function Footer({

@@ -1,15 +1,16 @@
 import { Grid } from "@mui/material";
-import { React, useEffect, useState } from "react";
+import { React, useContext, useEffect, useState } from "react";
 import Fetch from "../../common/fetch";
 import AdminDashboard from "../../component/adminDashboard";
 import { BarChart, LineChart } from "../../component/chart";
 import Hours from "../../component/hour";
 import InstructorDashboard from "../../component/InstructorDashboard";
 import StudentAnalysis from "../../component/studentanalysis";
-// import { withContext } from "../../context/appContext";
+import { AppContext } from "../../context/App";
 import AppLayout from "../../layout/appLayout";
-function Dashboard({ context }) {
-  const { role } = context
+const Dashboard = () => {
+  const context = useContext(AppContext);
+  const { role } = context;
   const [data,setData] = useState()
   useEffect(()=>{
     Fetch('flight/graph-api/data_count/').then(d=>{
