@@ -25,7 +25,7 @@ const validationSchema = yup.object({
     .required("Email is required."),
 });
 
-function Contact() {
+const Contact = () => {
   const [name, setname] = useState();
   const handlenameChange = (e) => {
     setname(e.target.value);
@@ -160,6 +160,6 @@ function Contact() {
       </div>
     </>
   );
-}
+};
 
 export default withStaticLayout(Contact);
