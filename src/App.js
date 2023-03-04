@@ -2,7 +2,7 @@ import "./App.css";
 import "./style/main.css";
 import { Route, Routes } from "react-router-dom";
 
-// import Homepage from "./Page/Homepage/Header/Homepage";
+import Homepage from "./Page/Homepage/Header/Homepage";
 import PageNotFound from "./Page/PageNotFound/PageNotFound";
 import About from "./Page/Homepage/Header/Homepageall/About";
 import Services from "./Page/Homepage/Header/Homepageall/Services";
@@ -293,7 +293,7 @@ const App = () => {
           component={Maintenece}
         /> */}
 
-      {/* <Route path="/home" element={<Homepage/>} exact /> */}
+      <Route path="/home" element={<Homepage />} exact />
       <Route path="/products" element={<Products />} exact />
       <Route path="/contact" element={<Contact />} exact />
       <Route path="/careers" element={<Careers />} exact />
