@@ -22,7 +22,7 @@ import Stack from "@mui/material/Stack";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControl from "@mui/material/FormControl";
-import { withContext } from "../../context/appContext";
+// import { withContext } from "../../context/appContext";
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 // const useStyles = makeStyles((theme) => ({
 //   root: {
@@ -125,7 +125,7 @@ function SignInSide(props) {
       setRole('3')
     }
   }, [props?.match?.path, location.pathname])
-  const baseURL = "https://api.mavaerosafety.com/" //process.env.REACT_APP_API_ENDPOINT;
+  const baseURL = process.env.REACT_APP_API_ENDPOINT //"https://api.mavaerosafety.com/" //process.env.REACT_APP_API_ENDPOINT;
   const onSubmit = async (e) => {
     setIsLoading(true);
     axios
@@ -133,7 +133,7 @@ function SignInSide(props) {
       .post(baseURL + "accounts/login/", {
         email: email,
         password: password,
-        user_role: role,
+        username: 'vinayak1',
 
       }).then((response) => {
         console.log(props);
@@ -451,4 +451,4 @@ function SignInSide(props) {
     </div>
   );
 }
-export default withContext(SignInSide);
+export default SignInSide;

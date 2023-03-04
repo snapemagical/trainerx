@@ -17,7 +17,7 @@ import {
 import { Link, NavLink } from 'react-router-dom'
 import { React, useState } from 'react'
 import { SideBarMenu } from '../../dummyData/menu'
-import { withContext } from '../../context/appContext'
+// import { withContext } from '../../context/appContext'
 function Sidebar({
   open,
   DrawerHeader,

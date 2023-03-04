@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import AppContext from "./context/appContext";
+import { AppProvider } from "./context/App";
 
 import "./index.css";
 
@@ -12,13 +12,11 @@ const container = document.getElementById("root");
 const root = createRoot(container); // createRoot(container!) if you use TypeScript
 root.render(
   <BrowserRouter>
-    {/* <AppContext> */}
-    <div id="app">
-    <AppContext>
-      <App />
-    </AppContext>
-    </div>
-    {/* </AppContext> */}
+    <AppProvider>
+      <div id="app">
+        <App />
+      </div>
+    </AppProvider>
   </BrowserRouter>
 );
 

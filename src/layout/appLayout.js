@@ -7,7 +7,7 @@ import { React, useEffect, useState } from 'react'
 import { styled, useTheme } from '@mui/material/styles'
 // import { makeStyles } from '@material-ui/core/styles'
 import MuiDrawer from '@mui/material/Drawer'
-import { withContext } from '../context/appContext'
+// import { withContext } from '../context/App'
 import Footer from '../component/footer'
 
 const drawerWidth = 250
@@ -134,7 +134,7 @@ const openedMixin = (theme) => ({
   }),
   overflowX: 'hidden',
 })
-function AppLayout({ children, context }) {
+const AppLayout = ({ children, context }) => {
   // const classes = useStyles()
   const theme = useTheme()
 
@@ -189,4 +189,4 @@ function AppLayout({ children, context }) {
     </Box>
   )
 }
-export default withContext(AppLayout)
+export default AppLayout

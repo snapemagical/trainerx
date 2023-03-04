@@ -6,7 +6,7 @@ import { BarChart, LineChart } from "../../component/chart";
 import Hours from "../../component/hour";
 import InstructorDashboard from "../../component/InstructorDashboard";
 import StudentAnalysis from "../../component/studentanalysis";
-import { withContext } from "../../context/appContext";
+// import { withContext } from "../../context/appContext";
 import AppLayout from "../../layout/appLayout";
 function Dashboard({ context }) {
   const { role } = context
@@ -37,4 +37,4 @@ function Dashboard({ context }) {
     </AppLayout>
   );
 }
-export default withContext(Dashboard);
+export default Dashboard;
