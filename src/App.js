@@ -10,10 +10,13 @@ import Careers from "./Page/Homepage/Header/Homepageall/Careers";
 import Contact from "./Page/Homepage/Header/Homepageall/Contact";
 import Products from "./Page/Homepage/Header/Homepageall/Products";
 
-// import Login from "./Page/Login/Login";
+import AuthRoute from "./common/authRoute";
+import Login from "./Page/Login/Login";
+import Dashboard from "./Page/Dashboard/Dashboard";
+
 // import Signup from "./Page/Signup/Signup";
 // import Forgetpassword from "./Page/ForgetPassword/Forgetpassword";
-// import Dashboard from "./Page/Dashboard/Dashboard";
+
 // import Userprofile from "./Page/UserProfile/Userprofile";
 // import Changepassword from "./Page/ForgetPassword/Changepassword";
 // import Signupstudent from "./Page/Signup/Signupstudent";
@@ -31,7 +34,6 @@ import Products from "./Page/Homepage/Header/Homepageall/Products";
 // import InstrumentRating from "./Page/UserProfile/page/Licenses/InstrumentRating";
 // import AddMedical from "./Page/UserProfile/page/Licenses/AddMedical";
 // import AddRatings from "./Page/UserProfile/page/Licenses/AddRatings";
-// import AuthRoute from "./common/authRoute";
 // import Roster from "./Page/Roaster";
 // import AllNotifications from "./Page/Notifications";
 // import AddRoster from "./Page/Roaster/add";
@@ -55,6 +57,10 @@ const App = () => {
   const isBackgroundRed = true;
   return (
     <Routes>
+      <Route exact path="/" element={<AuthRoute component={Login} authRequired={false}><Dashboard /></AuthRoute>} />
+      <Route exact path="/login" element={<AuthRoute component={Login} authRequired={false}><Dashboard /></AuthRoute>} />
+      <Route exact path="/login-admin" element={<AuthRoute component={Login} authRequired={false}><Dashboard /></AuthRoute>} />
+      <Route path="/dashboard" element={<AuthRoute component={Dashboard} authRequired={true} />} />
       {/* <AuthRoute exact path="/" component={Login} authRequired={false} />
         <AuthRoute exact path="/login" component={Login} authRequired={false} />
         <AuthRoute

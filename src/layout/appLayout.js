@@ -3,18 +3,15 @@ import Header from '../component/header'
 import Sidebar from '../component/sidebar'
 import MuiAppBar from '@mui/material/AppBar'
 import BottomNavigation from '@mui/material/BottomNavigation';
-import { React, useEffect, useState } from 'react'
-import { styled, useTheme } from '@mui/material/styles'
-import { makeStyles } from '@material-ui/core/styles'
+import { React, useContext, useEffect, useState } from 'react'
+// import { makeStyles } from '@material-ui/core/styles'
 import MuiDrawer from '@mui/material/Drawer'
-import { withContext } from '../context/appContext'
+import { AppContext } from '../context/App'
 import Footer from '../component/footer'
 
 const drawerWidth = 250
 
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== 'open',
-})(({ theme, open }) => ({
+const AppBar = ({ theme, open }) => ({
   zIndex: theme.zIndex.drawer + 1,
   transition: theme.transitions.create(['width', 'margin'], {
     easing: theme.transitions.easing.sharp,
@@ -28,10 +25,8 @@ const AppBar = styled(MuiAppBar, {
       duration: theme.transitions.duration.enteringScreen,
     }),
   }),
-}))
-const AppBarFooter = styled(BottomNavigation, {
-  shouldForwardProp: (prop) => prop !== 'open',
-})(({ theme, open }) => ({
+})
+const AppBarFooter = ({ theme, open }) => ({
   zIndex: theme.zIndex.drawer + 1,
   transition: theme.transitions.create(['width', 'margin'], {
     easing: theme.transitions.easing.sharp,
@@ -45,16 +40,16 @@ const AppBarFooter = styled(BottomNavigation, {
       duration: theme.transitions.duration.enteringScreen,
     }),
   }),
-}))
-const DrawerHeader = styled('div')(({ theme }) => ({
+})
+const DrawerHeader = ({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'flex-end',
   padding: theme.spacing(0, 1),
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
-}))
-const useStyles = makeStyles((theme) => ({
+})
+/*const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
@@ -98,10 +93,8 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
-}))
-const Drawer = styled(MuiDrawer, {
-  shouldForwardProp: (prop) => prop !== 'open',
-})(({ theme, open }) => ({
+}))*/
+const Drawer = ({ theme, open }) => ({
   width: drawerWidth,
   flexShrink: 0,
   whiteSpace: 'nowrap',
@@ -114,7 +107,7 @@ const Drawer = styled(MuiDrawer, {
     ...closedMixin(theme),
     '& .MuiDrawer-paper': closedMixin(theme),
   }),
-}))
+})
 const closedMixin = (theme) => ({
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
@@ -134,9 +127,10 @@ const openedMixin = (theme) => ({
   }),
   overflowX: 'hidden',
 })
-function AppLayout({ children, context }) {
-  const classes = useStyles()
-  const theme = useTheme()
+function AppLayout({ children }) {
+  const context = useContext(AppContext);
+  //const classes = useStyles()
+  const theme = null;
 
   const [open, setOpen] = useState(false)
   const [anchorEl, setAnchorEl] = useState(null)
@@ -185,8 +179,9 @@ function AppLayout({ children, context }) {
       <Footer
         open={open}
         AppBar={AppBarFooter}
+        context={context}
       />
     </Box>
   )
 }
-export default withContext(AppLayout)
+export default AppLayout
