@@ -68,7 +68,7 @@ function Sidebar({
       {SideBarMenu?.filter(
         (d) => d?.role?.includes(+role) || d?.role === 'all',
       ).map((d, i) => (
-        <List key={i + d.id}>
+        <List key={`${i}_${d.id}`}>
           {
             d?.children ?
               <>
@@ -107,4 +107,4 @@ const MenuItem = ({ d,iconsmall }) => {
     </ListItem>
   </NavLink>
 }
-export default Sidebar
+export default Sidebar;

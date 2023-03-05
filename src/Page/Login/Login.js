@@ -101,8 +101,7 @@ function SignInSide(props) {
           } else if (response.data.role === 'instructor') {
             setSuccess(response.data.message)
           }
-          console.log(context);
-          context.role(response?.data?.user?.role)
+          context.authLogin(+response.data.user.role);
           const token = response.data.token.access;
           localStorage.refresh_token = response.data.token.refresh
           localStorage.setItem('token', token);
