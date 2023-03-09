@@ -1,16 +1,15 @@
-import { React } from "react";
-import { Button } from "@material-ui/core";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import { Link } from "react-router-dom";
-import Grid from "@material-ui/core/Grid";
+import { React, useContext } from "react";
+import { Button } from "@mui/material";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import { Link, useLocation } from "react-router-dom";
+import Grid from "@mui/material/Grid";
 import * as yup from "yup";
-import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
+import Paper from "@mui/material/Paper";
 import { useEffect, useState } from "react";
-import InputLabel from "@material-ui/core/InputLabel";
+import InputLabel from "@mui/material/InputLabel";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import { Checkbox, InputAdornment, IconButton } from "@mui/material";
 import logo from "../images/loggo.png";
@@ -22,52 +21,8 @@ import Stack from "@mui/material/Stack";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControl from "@mui/material/FormControl";
-import { withContext } from "../../context/appContext";
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-const useStyles = makeStyles((theme) => ({
-  root: {
-    height: "100vh",
-    display: "flex",
-    [theme.breakpoints.down("sm")]: {
-      marginTop: "0px",
-    },
-    [theme.breakpoints.up("md")]: {
-      marginTop: "0px",
-    },
-    [theme.breakpoints.up("lg")]: {},
-  },
-
-  paper: {
-    margin: theme.spacing(8, 4),
-    display: "flex",
-    flexDirection: "column",
-    padding: theme.spacing(1),
-    [theme.breakpoints.down("sm")]: {
-      marginTop: "80px",
-    },
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-  "@media (min-width: 360px)": {
-    buttonContainer: {
-      marginTop: "800px",
-    },
-  },
-  "@media (min-width: 768px)": {
-    buttonContainer: {
-      marginTop: "800px",
-    },
-  },
-}));
+import { AppContext } from "../../context/App";
 
 const validationSchema = yup.object({
   email: yup
@@ -81,16 +36,19 @@ const validationSchema = yup.object({
 });
 
 function SignInSide(props) {
+  const context = useContext(AppContext);
+
   const [data, setData] = useState();
   const [success, setSuccess] = useState(null);
   const [message, setMessage] = useState(null);
   const [error, setError] = useState(null);
   const [role, setRole] = useState("2");
   const [isLoading, setIsLoading] = useState(false);
-  const history = useHistory();
+  const history = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword(!showPassword);
   const handleMouseDownPassword = () => setShowPassword(!showPassword);
+  const location = useLocation();
   useEffect(() => {
     document.title = "Login";
   }, []);
@@ -99,7 +57,7 @@ function SignInSide(props) {
     setRole(event.target.value);
   };
 
-  const classes = useStyles();
+  //const classes = useStyles();
 
   const [email, setEmail] = useState();
   const handleEmailChange = (e) => {
@@ -119,10 +77,10 @@ function SignInSide(props) {
     // setPassword({ e.target.value});
   };
   useEffect(() => {
-    if (props?.match?.path === '/login-admin') {
+    if (props?.match?.path || location.pathname === '/login-admin') {
       setRole('3')
     }
-  }, [props?.match?.path])
+  }, [props?.match?.path, location.pathname])
   const baseURL = process.env.REACT_APP_API_ENDPOINT;
   const onSubmit = async (e) => {
     setIsLoading(true);
@@ -131,7 +89,7 @@ function SignInSide(props) {
       .post(baseURL + "accounts/login/", {
         email: email,
         password: password,
-        user_role: role,
+        username: 'vivek',
 
       })
 
@@ -143,13 +101,13 @@ function SignInSide(props) {
           } else if (response.data.role === 'instructor') {
             setSuccess(response.data.message)
           }
-          props?.context.authLogin(response?.data?.user?.role)
+          context.authLogin(+response.data.user.role);
           const token = response.data.token.access;
           localStorage.refresh_token = response.data.token.refresh
           localStorage.setItem('token', token);
           const user = JSON.stringify(response?.data?.user)
           localStorage.user = user
-          props?.context.getProfile()
+          context.getProfile()
           history.push("/dashboard");
         }
       })
@@ -207,7 +165,7 @@ function SignInSide(props) {
                     maxHeight: "949px",
                   }}
                 >
-                  <div className={classes.paper}>
+                  <div className="paper">
                     <div className="logoo">
                       <img
                         src={logo}
@@ -219,7 +177,7 @@ function SignInSide(props) {
 
                     {isLoading === true ? <CircularProgress /> : ""}
                     <div>
-                      {props?.match?.path !== '/login-admin' ? <Stack
+                      {props?.match?.path || location.pathname !== '/login-admin' ? <Stack
                         direction="row"
                         spacing={2}
                         style={{ justifyContent: "center", marginTop: "34px" }}
@@ -256,7 +214,7 @@ function SignInSide(props) {
 
                     <div className="formm">
                       <form
-                        className={classes.form}
+                        className="form"
                         method="POST"
                         noValidate
                         onSubmit={formik.handleSubmit}
@@ -396,7 +354,7 @@ function SignInSide(props) {
                             disabled={isLoading}
                             size="medium"
                             color="primary"
-                            className={classes.margin}
+                            className="margin"
                           >
                             Login
                           </Button>
@@ -447,4 +405,4 @@ function SignInSide(props) {
     </div>
   );
 }
-export default withContext(SignInSide);
+export default SignInSide;

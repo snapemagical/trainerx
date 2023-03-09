@@ -15,17 +15,17 @@ import {
   ExpandMore
 } from '@mui/icons-material'
 import { Link, NavLink } from 'react-router-dom'
-import { React, useState } from 'react'
+import { React, useContext, useState } from 'react'
 import { SideBarMenu } from '../../dummyData/menu'
-import { withContext } from '../../context/appContext'
+import { AppContext } from '../../context/App'
 function Sidebar({
   open,
   DrawerHeader,
   Drawer,
   handleDrawerClose,
   theme,
-  context,
 }) {
+  const context = useContext(AppContext);
   const { role } = context
   const [openDrop, setOpen] = useState({});
   const handleClick = (i) => {
@@ -68,7 +68,7 @@ function Sidebar({
       {SideBarMenu?.filter(
         (d) => d?.role?.includes(+role) || d?.role === 'all',
       ).map((d, i) => (
-        <List key={i + d.id}>
+        <List key={`${i}_${d.id}`}>
           {
             d?.children ?
               <>
@@ -107,4 +107,4 @@ const MenuItem = ({ d,iconsmall }) => {
     </ListItem>
   </NavLink>
 }
-export default Sidebar
+export default Sidebar;

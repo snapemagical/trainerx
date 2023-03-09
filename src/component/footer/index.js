@@ -1,15 +1,16 @@
 import { Toolbar, IconButton, Menu, MenuItem, Typography } from '@mui/material'
 import { Settings, AccountCircle, NotificationsActive, Help } from '@mui/icons-material'
 import MenuIcon from '@mui/icons-material/Menu'
-import { withContext } from '../../context/appContext';
-import { useHistory } from 'react-router-dom';
+import { AppContext } from '../../context/App';
+import { useNavigate } from 'react-router-dom';
 import logo from '../../Page/images/trainerX_logo_Blue.png'
+import { useContext } from 'react';
 function Footer({
     open,
     AppBar,
-    context,
 }) {
-    const history = useHistory()
+    const context = useContext(AppContext);
+    const history = useNavigate ()
     const { role, notificationsCount, userProfile } = context
     const disabled = role > 2
     return (
@@ -39,4 +40,4 @@ function Footer({
         </AppBar>
     )
 }
-export default withContext(Footer)
+export default Footer;
