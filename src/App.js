@@ -14,6 +14,8 @@ import AuthRoute from "./common/authRoute";
 import Login from "./Page/Login/Login";
 import Dashboard from "./Page/Dashboard/Dashboard";
 
+import AddInstitute from "./Page/Admin/AddInstitute/AddInstitute";
+
 // import Signup from "./Page/Signup/Signup";
 // import Forgetpassword from "./Page/ForgetPassword/Forgetpassword";
 
@@ -61,6 +63,7 @@ const App = () => {
       <Route exact path="/login" element={<AuthRoute component={Login} authRequired={false}><Dashboard /></AuthRoute>} />
       <Route exact path="/login-admin" element={<AuthRoute component={Login} authRequired={false}><Dashboard /></AuthRoute>} />
       <Route path="/dashboard" element={<AuthRoute component={Dashboard} authRequired={true} />} />
+      <Route path="/add-institute" element={<AuthRoute component={AddInstitute} authRequired={true} />} />
       {/* <AuthRoute exact path="/" component={Login} authRequired={false} />
         <AuthRoute exact path="/login" component={Login} authRequired={false} />
         <AuthRoute
