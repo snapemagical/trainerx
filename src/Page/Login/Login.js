@@ -30,6 +30,7 @@ const validationSchema = yup.object({
     .email("Please enter a valid email.")
     .required("Email is required."),
   password: yup.string().required("Password is required."),
+  username: yup.string().required("Username is required."),
   tandc: yup
     .boolean()
     .oneOf([true], "You must accept the terms and conditions"),
@@ -60,8 +61,13 @@ function SignInSide(props) {
   //const classes = useStyles();
 
   const [email, setEmail] = useState();
+  const [username, setUsername] = useState();
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
+    // setState({email: e.target.value});
+  };
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
     // setState({email: e.target.value});
   };
 
@@ -89,7 +95,7 @@ function SignInSide(props) {
       .post(baseURL + "accounts/login/", {
         email: email,
         password: password,
-        username: 'vivek',
+        username: username,
 
       })
 
@@ -135,7 +141,7 @@ function SignInSide(props) {
     return JSON.parse(jsonPayload);
   };
   const formik = useFormik({
-    initialValues: { email: "", password: "" },
+    initialValues: { email: "", password: "", username: "" },
     validateOnBlur: true,
     onSubmit,
     validationSchema: validationSchema,
@@ -249,6 +255,36 @@ function SignInSide(props) {
                           type="email"
                           value={formik.values.email}
                         />
+                        <InputLabel
+                        className="InputLabel"
+                        style={{
+                          color: "#fff",
+                          display: "flex",
+                          fontSize: "24px",
+                          letterSpacing: "1px",
+                          marginTop: "35px",
+                        }}
+                      >
+                        Username
+                      </InputLabel>
+                      <TextField
+                        // inputProps={{ maxLength: 30 }}
+                        error={Boolean(
+                          formik.touched.username && formik.errors.username
+                        )}
+                        fullWidth
+                        helperText={
+                          formik.touched.username && formik.errors.username
+                        }
+                        margin="normal"
+                        name="username"
+                        variant="outlined"
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                        onKeyUp={handleUsernameChange}
+                        type="text"
+                        value={formik.values.username}
+                      />
                         <InputLabel
                           className="InputLabel"
                           style={{
