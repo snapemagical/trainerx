@@ -154,6 +154,7 @@ function SignInSide(props) {
       <Grid container>
         <CssBaseline />
         <Grid
+          item
           lg={12}
           style={{ marginTop: "auto", marginBottom: "auto", width: "100%" }}
         >

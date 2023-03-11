@@ -15,7 +15,7 @@ const Dashboard = () => {
     Fetch('flight/graph-api/data_count/').then(d=>{
         if(d.status){
           setData(d.data)
-        }
+        } 
     })
 },[])
   return (

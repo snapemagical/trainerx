@@ -21,12 +21,12 @@ function AddInstitute() {
   }, []);
 
   const handleFieldChange = (e) => {
-    let fieldval = e.target.value;
     let fieldName = e.target.name;
     let details = {};
-    details[fieldName] = fieldval
+    details[fieldName] = formik.values[fieldName];
+    console.log(details[fieldName]);
     setinstituteDetails({...details, ...instituteDetails});
-    console.log(instituteDetails);
+
     // setState({email: e.target.value});
   };  
   const baseURL = process.env.REACT_APP_API_ENDPOINT;
@@ -41,12 +41,14 @@ function AddInstitute() {
   const onSubmit = (e) => {
     setIsLoading(true);
     axios
-      .post(baseURL + `accounts/institute/add-institute/`, instituteDetails, axiosConfig)
+      .post(baseURL + `accounts/institute/add-institute/`, formik.values, axiosConfig)
       .then((response) => {        
         setIsLoading(false);
         if(response.status) {
-          console.log(response);
-          navigate("/add-user");
+          console.log(response.data);
+          let userId = response.data.response.id;
+          console.log(userId);
+          navigate("/add-user", { state : {userId} });
         }
       })
       .catch((error) => {
@@ -323,6 +325,10 @@ function AddInstitute() {
             
             <Button variant="contained" type="submit">
               Add Institute
+            </Button>
+            
+            <Button variant="contained" style={{ marginLeft: '1rem' }} onClick={()=> navigate('/dashboard')}>
+              Cancel
             </Button>
           </form>          
           </Grid>

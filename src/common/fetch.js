@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 const baseURL = process.env.REACT_APP_API_ENDPOINT
 const commonParams = {}
 export default function Fetch(endPoint, params, option, callback) {
@@ -56,6 +56,7 @@ export default function Fetch(endPoint, params, option, callback) {
       })
       .catch((err) => {
         if (err?.response?.status === 401) {
+          localStorage.clear();
           if(oneTimeApiCall){
             oneTimeApiCall=false
             return fetch(localStorage.token)

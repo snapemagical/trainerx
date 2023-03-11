@@ -1218,3 +1218,29 @@ a.active .MuiButtonBase-root.MuiListItem-root.MuiListItem-gutters {
 }
 
 /*  */
+.pagination.rounded-icon-btn button {
+  padding: 0;
+  border-radius: 50%;
+  border-color:rgba(0, 0, 0, 1);
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  line-height: 0;
+  border: 2px solid;
+}
+.pagination.rounded-icon-btn button:disabled {  
+  border-color:rgba(0, 0, 0, 0.20);
+  cursor: default;
+}
+.rounded-icon-btn button svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.pagination {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+.pagination button {
+  margin: 0 0.5rem;
+}
