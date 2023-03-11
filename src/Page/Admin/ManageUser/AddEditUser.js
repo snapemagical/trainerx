@@ -27,18 +27,15 @@ const AddEditUser = () => {
     const handleMouseDownPassword = () => setShowPassword(!showPassword);
     useEffect(()=>{
         console.log(location.state.userId);
-        setUserDetails({institute_id: location.state.userId, ...userDetails});        
+        setUserDetails(prevState => ({...prevState, institute_id: location.state.userId}));        
         console.log(userDetails);
     },[]);
 
     const handleFieldChange = (e) => {
-        let fieldval = e.target.value;
-        let fieldName = e.target.name;
-        let details = {};
-        details[fieldName] = fieldval;
-        if(fieldval) {
-            setUserDetails({...details, ...userDetails});
-        }
+        let { name, value} = e.target;
+        //let details = {};
+        //details[fieldName] = formik.values[fieldName];
+        setUserDetails(prevState=> ({...prevState, [name]: value}));
         console.log(userDetails);
       };  
       const baseURL = process.env.REACT_APP_API_ENDPOINT;
@@ -52,12 +49,13 @@ const AddEditUser = () => {
       
       const onSubmit = (e) => {
         setIsLoading(true);
+        let userData = formik.values;
+        userData['institute_id'] = location.state.userId;
         axios
-          .post(baseURL + `accounts/admin-signup/`, userDetails, axiosConfig)
+          .post(baseURL + `accounts/admin-signup/`, userData, axiosConfig)
           .then((response) => {        
             setIsLoading(false);
             if(response.status) {
-              console.log(response);
               navigate("/dashboard");
               swal("User successfully added.", "", "success", {
                 button: "OK",
@@ -66,7 +64,9 @@ const AddEditUser = () => {
           })
           .catch((error) => {
             if (error.response) {
-              setMessage(error.response.data.email[0], "hello11111");
+              swal("Oops", error.response.data.error, "error", {
+                button: "OK",
+              });
               // Request made and server responded
             }
           });

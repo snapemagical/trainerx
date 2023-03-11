@@ -34,7 +34,7 @@ const AppProvider = (props) => {
       if (d?.status) {
         setUserProfile(d.data);
       }
-    });
+    }).catch(error => console.log(error));
   };
 
   const authLogin = (roleVal) => {

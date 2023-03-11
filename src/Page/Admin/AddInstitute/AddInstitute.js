@@ -21,14 +21,10 @@ function AddInstitute() {
   }, []);
 
   const handleFieldChange = (e) => {
-    let fieldName = e.target.name;
-    let details = {};
-    details[fieldName] = formik.values[fieldName];
-    console.log(details[fieldName]);
-    setinstituteDetails({...details, ...instituteDetails});
+    let { name, value} = e.target;
+    setinstituteDetails(prevState=> ({...prevState, [name]: value}));
+  };
 
-    // setState({email: e.target.value});
-  };  
   const baseURL = process.env.REACT_APP_API_ENDPOINT;
   const token = localStorage.getItem('token');
   let axiosConfig = {
